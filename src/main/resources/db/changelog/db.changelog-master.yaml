@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: /db/changelog/changes/create_todo.sql
+  - include:
+      file: /db/changelog/changes/create_todo_history.sql

@@ -5,8 +5,9 @@ import org.aleksey.springnew.dto.TodoResponseDto;
 import org.aleksey.springnew.dto.TodoUpdateDto;
 import org.aleksey.springnew.model.Todo;
 import org.mapstruct.Mapper;
+import org.mapstruct.MapperConfig;
 
-@Mapper(componentModel = "spring")
+@Mapper(config = MapperConfig.class)
 public interface TodoMapper {
    Todo toEntity(TodoCreateDto dto);
 

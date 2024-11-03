@@ -1,5 +1,5 @@
 databaseChangeLog:
   - include:
-      file: /db/changelog/changes/create_todo.sql
+      file: /db/changelog/changes/todo.yaml
   - include:
-      file: /db/changelog/changes/create_todo_history.sql
+      file: /db/changelog/changes/todo_history.yaml

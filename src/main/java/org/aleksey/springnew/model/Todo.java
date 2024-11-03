@@ -27,8 +27,9 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "title", length = 100, columnDefinition = "VARBINARY")
     private String title;
-    @Column(length = 500)
+    @Column(name = "description", length = 500, columnDefinition = "VARBINARY")
     private String description;
     private LocalDateTime dueDate;
 

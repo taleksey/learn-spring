@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
 @Service
 public class TodoServiceImpl implements TodoService {
     private final TodoRepository todoRepository;
-    private final TodoMapper todoMapper;
     private final TodoHistoryRepository todoHistoryRepository;
+    private final TodoMapper todoMapper;
     private final TodoHistoryMapper todoHistoryMapper;
 
 

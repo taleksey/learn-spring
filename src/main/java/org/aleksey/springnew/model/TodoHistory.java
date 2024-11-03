@@ -2,7 +2,6 @@ package org.aleksey.springnew.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
@@ -19,12 +18,11 @@ public class TodoHistory {
     @JoinColumn(name = "todo_id")
     private Todo todoId;
 
+    @Column(name = "old_state", columnDefinition = "BLOB")
     private String oldState;
 
+    @Column(name = "new_state", columnDefinition = "BLOB")
     private String newState;
-
-    @CreationTimestamp
-    private LocalDateTime createdAt;
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;

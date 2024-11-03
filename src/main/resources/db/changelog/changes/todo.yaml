@@ -18,12 +18,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: title
-                  type: varchar(100)
+                  type: varbinary(100)
                   constraints:
                     nullable: false
               - column:
                   name: description
-                  type: varchar(500)
+                  type: varbinary(500)
                   constraints:
                     nullable: false
               - column:

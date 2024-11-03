@@ -24,12 +24,12 @@ databaseChangeLog:
                     references: todo(id)
               - column:
                   name: old_state
-                  type: text
+                  type: blob
                   constraints:
                     nullable: false
               - column:
                   name: new_state
-                  type: text
+                  type: blob
                   constraints:
                     nullable: false
               - column:

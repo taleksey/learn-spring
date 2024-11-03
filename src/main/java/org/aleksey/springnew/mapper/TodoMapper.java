@@ -5,7 +5,7 @@ import org.aleksey.springnew.dto.TodoResponseDto;
 import org.aleksey.springnew.dto.TodoUpdateDto;
 import org.aleksey.springnew.model.Todo;
 import org.mapstruct.Mapper;
-import org.mapstruct.MapperConfig;
+import org.aleksey.springnew.config.MapperConfig;
 
 @Mapper(config = MapperConfig.class)
 public interface TodoMapper {

@@ -48,4 +48,8 @@ public class Todo {
     private Long userId;
 
     private boolean isDeleted = false;
+
+    public Todo(Long id) {
+        this.id = id;
+    }
 }

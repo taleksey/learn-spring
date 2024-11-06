@@ -19,6 +19,7 @@ public class TodoHistory {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "todo_id")
     private Todo todoId;
 
     @Column(name = "old_state", columnDefinition = "BLOB")

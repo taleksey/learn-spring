@@ -8,6 +8,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(config = MapperConfig.class, uses = TodoMapper.class)
 public interface TodoHistoryMapper {
-    @Mapping(target = "todoId", source = "todo.id")
+    @Mapping(target = "todoId", source = "todoId.id")
     TodoHistoryResponseDto toResponseDto(TodoHistory taskHistory);
 }

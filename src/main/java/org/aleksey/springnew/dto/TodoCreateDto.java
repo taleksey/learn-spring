@@ -1,6 +1,6 @@
 package org.aleksey.springnew.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.aleksey.springnew.types.PriorityType;
@@ -15,7 +15,7 @@ public class TodoCreateDto {
     @Size(min = 1, max = 500)
     private String description;
 
-    @NotBlank
+    @NotNull
     private LocalDateTime dueDate;
 
     private PriorityType priority;

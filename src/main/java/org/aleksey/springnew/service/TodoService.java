@@ -9,11 +9,11 @@ import org.aleksey.springnew.model.TodoHistory;
 import java.util.List;
 
 public interface TodoService {
-    public TodoResponseDto createTodo(TodoCreateDto todoCreateDto);
+    TodoResponseDto createTodo(TodoCreateDto todoCreateDto);
 
-    public TodoResponseDto updateTodo(Long id, TodoUpdateDto todoUpdateDto);
+    TodoResponseDto updateTodo(Long id, TodoUpdateDto todoUpdateDto);
 
-    public void deleteTodo(Long id);
+    void deleteTodo(Long id);
 
-    public List<TodoHistoryResponseDto> getTodoHistory(Long id);
+    List<TodoHistoryResponseDto> getTodoHistory(Long id);
 }

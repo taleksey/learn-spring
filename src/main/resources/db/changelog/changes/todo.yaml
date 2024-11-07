@@ -33,12 +33,12 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: priority
-                  type: ENUM('high', 'low', 'medium')
+                  type: ENUM('HIGH', 'LOW', 'MEDIUM')
                   constraints:
                     nullable: true
               - column:
                   name: status
-                  type: ENUM('pending', 'in_progress', 'completed')
+                  type: ENUM('PENDING', 'IN_PROGRESS', 'COMPLETED')
                   constraints:
                     nullable: true
               - column:

@@ -43,7 +43,10 @@ public class TodoServiceImpl implements TodoService {
         );
 
         Todo updatedTodo = todoMapper.toEntity(todoUpdateDto);
+
         updatedTodo.setId(id);
+        updatedTodo.setStatus(StatusType.IN_PROGRESS);
+
         TodoHistory todoHistory = new TodoHistory();
         todoHistory.setTodoId(savedTodo);
         todoHistory.setOldState(savedTodo.toString());

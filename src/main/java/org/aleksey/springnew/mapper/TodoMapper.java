@@ -9,7 +9,7 @@ import org.aleksey.springnew.config.MapperConfig;
 
 @Mapper(config = MapperConfig.class)
 public interface TodoMapper {
-   Todo toEntity(TodoCreateDto dto);
+    Todo toEntity(TodoCreateDto dto);
 
     Todo toEntity(TodoUpdateDto todoUpdateDto);
 

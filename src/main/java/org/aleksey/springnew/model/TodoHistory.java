@@ -31,4 +31,6 @@ public class TodoHistory {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
+    @Column(name = "changed_by")
+    private Long changedBy;
 }

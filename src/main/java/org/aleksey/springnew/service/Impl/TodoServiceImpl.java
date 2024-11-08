@@ -1,11 +1,12 @@
 package org.aleksey.springnew.service.Impl;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.aleksey.springnew.dto.TodoCreateDto;
 import org.aleksey.springnew.dto.TodoHistoryResponseDto;
 import org.aleksey.springnew.dto.TodoResponseDto;
 import org.aleksey.springnew.dto.TodoUpdateDto;
-import org.aleksey.springnew.exception.EntityNotFoundException;
 import org.aleksey.springnew.mapper.TodoHistoryMapper;
 import org.aleksey.springnew.mapper.TodoMapper;
 import org.aleksey.springnew.model.Todo;
@@ -37,6 +38,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    @Transactional
     public TodoResponseDto updateTodo(Long id, TodoUpdateDto todoUpdateDto) {
         Todo savedTodo = todoRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't find todo by id " + id)
@@ -62,13 +64,17 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(Long id) {
+    public void deleteTodo(Long id)
+    {
         todoRepository.deleteById(id);
     }
 
     @Override
     public List<TodoHistoryResponseDto> getTodoHistory(Long id) {
-        List<TodoHistory> historyList = todoHistoryRepository.findByTodoId(id);
+        Todo savedTodo = todoRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Can't find todo by id " + id)
+        );
+        List<TodoHistory> historyList = todoHistoryRepository.findByTodoId(savedTodo);
 
         return historyList.stream()
                 .map(todoHistoryMapper::toResponseDto)

@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import org.aleksey.springnew.types.PriorityType;
+import org.aleksey.springnew.validation.ValidEnum;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +19,6 @@ public class TodoCreateDto {
     @NotNull
     private LocalDateTime dueDate;
 
-    private PriorityType priority;
-
+    @ValidEnum(enumClass = PriorityType.class, message = "Priority must be one of: HIGH, LOW, MEDIUM")
+    private String priority;
 }

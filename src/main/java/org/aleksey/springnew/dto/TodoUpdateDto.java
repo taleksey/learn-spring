@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.aleksey.springnew.types.PriorityType;
 import org.aleksey.springnew.types.StatusType;
+import org.aleksey.springnew.validation.ValidEnum;
 
 import java.time.LocalDateTime;
 
@@ -24,7 +25,8 @@ public class TodoUpdateDto {
     @NotNull
     private LocalDateTime dueDate;
 
-    private PriorityType priority;
+    @ValidEnum(enumClass = PriorityType.class, message = "Priority must be one of: HIGH, LOW, MEDIUM")
+    private String priority;
 
     private StatusType status;
 }

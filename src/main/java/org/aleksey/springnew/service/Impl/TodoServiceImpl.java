@@ -1,6 +1,5 @@
 package org.aleksey.springnew.service.Impl;
 
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

@@ -18,22 +18,22 @@ public class TodoController {
 
     @PostMapping
     public TodoResponseDto create(@RequestBody @Valid TodoCreateDto todo) {
-        return todoService.createTodo(todo);
+        return todoService.create(todo);
     }
 
     @PutMapping("/{id}")
     public TodoResponseDto update(@PathVariable Long id, @Valid @RequestBody TodoUpdateDto todo) {
         todo.setId(id);
-        return todoService.updateTodo(id, todo);
+        return todoService.update(id, todo);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        todoService.deleteTodo(id);
+        todoService.delete(id);
     }
 
     @GetMapping("/{id}/history")
     public List<TodoHistoryResponseDto> getHistory(@PathVariable Long id) {
-        return todoService.getTodoHistory(id);
+        return todoService.getHistory(id);
     }
 }

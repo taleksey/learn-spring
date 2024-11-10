@@ -26,7 +26,6 @@ public class TodoServiceImpl implements TodoService {
     private final TodoHistoryRepository todoHistoryRepository;
     private final TodoMapper todoMapper;
     private final TodoHistoryMapper todoHistoryMapper;
-    @PersistenceContext
 
     @Override
     public TodoResponseDto create(TodoCreateDto todoCreateDto) {

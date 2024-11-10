@@ -18,8 +18,6 @@ import org.aleksey.springnew.repoitory.TodoRepository;
 import org.aleksey.springnew.service.TodoService;
 import org.aleksey.springnew.types.StatusType;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -30,7 +28,6 @@ public class TodoServiceImpl implements TodoService {
     private final TodoMapper todoMapper;
     private final TodoHistoryMapper todoHistoryMapper;
     @PersistenceContext
-    private EntityManager entityManager;
 
     @Override
     public TodoResponseDto createTodo(TodoCreateDto todoCreateDto) {

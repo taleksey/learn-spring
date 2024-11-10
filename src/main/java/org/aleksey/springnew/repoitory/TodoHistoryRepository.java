@@ -1,6 +1,5 @@
 package org.aleksey.springnew.repoitory;
 
-import org.aleksey.springnew.model.Todo;
 import org.aleksey.springnew.model.TodoHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

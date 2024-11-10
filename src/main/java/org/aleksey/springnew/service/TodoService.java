@@ -8,11 +8,11 @@ import org.aleksey.springnew.dto.TodoUpdateDto;
 import java.util.List;
 
 public interface TodoService {
-    TodoResponseDto createTodo(TodoCreateDto todoCreateDto);
+    TodoResponseDto create(TodoCreateDto todoCreateDto);
 
-    TodoResponseDto updateTodo(Long id, TodoUpdateDto todoUpdateDto);
+    TodoResponseDto update(Long id, TodoUpdateDto todoUpdateDto);
 
-    void deleteTodo(Long id);
+    void delete(Long id);
 
-    List<TodoHistoryResponseDto> getTodoHistory(Long id);
+    List<TodoHistoryResponseDto> getHistory(Long id);
 }

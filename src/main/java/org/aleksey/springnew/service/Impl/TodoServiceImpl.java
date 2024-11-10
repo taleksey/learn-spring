@@ -29,7 +29,7 @@ public class TodoServiceImpl implements TodoService {
     @PersistenceContext
 
     @Override
-    public TodoResponseDto createTodo(TodoCreateDto todoCreateDto) {
+    public TodoResponseDto create(TodoCreateDto todoCreateDto) {
         Todo todo = todoMapper.toEntity(todoCreateDto);
         todo.setStatus(StatusType.PENDING);
         todo.setUserId(1L);
@@ -38,7 +38,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     @Transactional
-    public TodoResponseDto updateTodo(Long id, TodoUpdateDto todoUpdateDto) {
+    public TodoResponseDto update(Long id, TodoUpdateDto todoUpdateDto) {
         Todo savedTodo = todoRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't find todo by id " + id)
         );
@@ -61,12 +61,12 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(Long id) {
+    public void delete(Long id) {
         todoRepository.deleteById(id);
     }
 
     @Override
-    public List<TodoHistoryResponseDto> getTodoHistory(Long id) {
+    public List<TodoHistoryResponseDto> getHistory(Long id) {
         Todo savedTodo = todoRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Can't find todo by id " + id)
         );

@@ -1,7 +1,6 @@
 package org.aleksey.springnew.service.Impl;
 
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.aleksey.springnew.dto.TodoCreateDto;

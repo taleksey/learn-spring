@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: aleksey
+      labels: create table todo_history
+      context: create table todo_history
+      comment: create table todo_history
+      changes:
+        - createTable:
+            tableName: todo_history
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: todo_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_todo_todo_history
+                    references: todo(id)
+              - column:
+                  name: old_state
+                  type: blob
+                  constraints:
+                    nullable: false
+              - column:
+                  name: new_state
+                  type: blob
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: true
+              - column:
+                  name: changed_by
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_deleted
+                  type: tinyint(1)
+                  defaultValue: "0"
+                  constraints:
+                    nullable: false

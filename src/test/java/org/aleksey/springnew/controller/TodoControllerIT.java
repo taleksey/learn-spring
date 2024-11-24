@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -166,7 +167,6 @@ public class TodoControllerIT {
     @DisplayName("Add update task")
     void getHistoryTodo_ValidRequest_Success() throws Exception {
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get("/todos/1/history")
-                        .content("")
                         .contentType(MediaType.APPLICATION_JSON)
                 )
                 .andExpect(status().isOk())
@@ -189,8 +189,14 @@ public class TodoControllerIT {
         expected.add(todoHistoryResponseSecondDto);
 
         // Then
-        TodoHistoryResponseDto[] actual = objectMapper.readValue(result.getResponse().getContentAsByteArray(), TodoHistoryResponseDto[].class);
-        Assertions.assertEquals(2, actual.length);
-        Assertions.assertEquals(expected, Arrays.stream(actual).toList());
+        //TodoHistoryResponseDto[] actual = objectMapper.readValue(result.getResponse().getContentAsByteArray(), TodoHistoryResponseDto[].class);
+        List<TodoHistoryResponseDto> actual = objectMapper.readValue(
+                result.getResponse().getContentAsByteArray(),
+                new TypeReference<>() {
+                }
+        );
+
+        Assertions.assertEquals(2, (long) actual.size());
+        Assertions.assertEquals(expected, actual);
     }
 }

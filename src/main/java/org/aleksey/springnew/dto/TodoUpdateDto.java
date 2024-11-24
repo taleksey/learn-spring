@@ -2,6 +2,7 @@ package org.aleksey.springnew.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,6 +16,7 @@ import java.util.Objects;
 @Setter
 @Getter
 @ToString
+@EqualsAndHashCode
 public class TodoUpdateDto {
     private Long id;
     @Size(min = 1, max = 100)
@@ -30,30 +32,4 @@ public class TodoUpdateDto {
     private String priority;
 
     private StatusType status;
-
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        TodoUpdateDto that = (TodoUpdateDto) object;
-        if (!Objects.equals(this.getId(), that.getId())) {
-            return false;
-        }
-
-        if (!Objects.equals(this.getTitle(), that.getTitle())) {
-            return false;
-        }
-
-        if (!Objects.equals(this.getDescription(), that.getDescription())) {
-            return false;
-        }
-
-        if (!Objects.equals(this.getDueDate(), that.getDueDate())) {
-            return false;
-        }
-
-        if (!Objects.equals(this.getPriority(), that.getPriority())) {
-            return false;
-        }
-
-        return Objects.equals(this.getStatus(), that.getStatus());
-    }
 }

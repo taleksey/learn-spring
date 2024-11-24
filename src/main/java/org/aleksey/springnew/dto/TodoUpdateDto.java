@@ -11,7 +11,6 @@ import org.aleksey.springnew.types.StatusType;
 import org.aleksey.springnew.validation.ValidEnum;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Setter
 @Getter

@@ -2,6 +2,7 @@ package org.aleksey.springnew.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @ToString
+@EqualsAndHashCode
 public class TodoUpdateDto {
     private Long id;
     @Size(min = 1, max = 100)

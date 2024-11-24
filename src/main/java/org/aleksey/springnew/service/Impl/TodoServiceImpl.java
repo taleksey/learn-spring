@@ -60,6 +60,10 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public void delete(Long id) {
+        todoRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Can't find todo by id " + id)
+        );
+
         todoRepository.deleteById(id);
     }
 
